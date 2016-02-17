@@ -44,7 +44,7 @@ public class RecursionController
 		return calculatedValue;
 	}
 	
-	public String doTime(String executionTime )
+	public String TimingInfo(String executionTime )
 	{
 		String timerDescription = "Current execution time is: " + this.executionTime + " in nanoseconds.";
 		return timerDescription;
