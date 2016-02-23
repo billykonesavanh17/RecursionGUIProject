@@ -14,6 +14,7 @@ public class RecursionPanel extends JPanel
 	private JTextField inputField;
 	private JTextArea resultsArea;
 	private SpringLayout baseLayout;
+	private JLabel timingLabel;
 	
 	public RecursionPanel(RecursionController baseController)
 	{
@@ -23,6 +24,9 @@ public class RecursionPanel extends JPanel
 		factorialButton = new JButton("Get n!");
 		inputField = new JTextField(20);
 		resultsArea = new JTextArea(10, 20);
+		timingLabel = new JLabel("Time executed");
+		baseLayout.putConstraint(SpringLayout.NORTH, timingLabel, 5, SpringLayout.NORTH, factorialButton);
+		baseLayout.putConstraint(SpringLayout.EAST, timingLabel, 0, SpringLayout.EAST, fibonacciButton);
 		
 		setupPanel();
 		setupLayout();
@@ -36,10 +40,12 @@ public class RecursionPanel extends JPanel
 		this.add(factorialButton);
 		this.add(inputField);
 		this.add(resultsArea);
+		this.add(timingLabel);
 		this.setBackground(Color.CYAN);
 		resultsArea.setWrapStyleWord(true);
 		resultsArea.setLineWrap(true);
 		resultsArea.setText(baseController.getCalculatedValue());
+		
 	}
 	
 	
@@ -67,7 +73,7 @@ public class RecursionPanel extends JPanel
 				String userInput = inputField.getText();
 				if(checkInput(userInput))
 				{
-					resultsArea.setText(baseController.doFibonacci(userInput) + " " + baseController.TimingInfo(userInput));
+					resultsArea.setText(baseController.doFibonacci(userInput));
 				}
 			}
 		});
@@ -79,7 +85,7 @@ public class RecursionPanel extends JPanel
 				String userInput = inputField.getText();
 				if(checkInput(userInput))
 				{
-					resultsArea.append(baseController.doFactorial(userInput) + " " + baseController.TimingInfo(userInput));
+					resultsArea.append(baseController.doFactorial(userInput));
 				}
 			}
 

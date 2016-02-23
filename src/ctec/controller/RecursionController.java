@@ -3,6 +3,7 @@ package ctec.controller;
 import ctec.model.RecursionTool;
 import ctec.model.CodeTimer;
 import ctec.view.RecursionFrame;
+import ctec.view.RecursionPanel;
 
 public class RecursionController
 {
@@ -33,20 +34,19 @@ public class RecursionController
 	public String doFibonacci(String inputValue)
 	{
 		calculatedValue = "The Fibonacci sequence number of " + inputValue + " is " + Integer.toString(mathTool.getFibNumber(Integer.parseInt(inputValue)));
-		timeValue = timeTool.toString();
+		
 		return calculatedValue;
 	}
 	
 	public String doFactorial(String inputValue)
 	{
 		calculatedValue = "The Factorial sequence number of " + inputValue + " is " + Integer.toString(mathTool.getFactorialNumber(Integer.parseInt(inputValue)));
-		timeValue = timeTool.toString();
+		
 		return calculatedValue;
 	}
 	
-	public String TimingInfo(String executionTime )
+	public String TimingInfo()
 	{
-		String timerDescription = "Current execution time is: " + this.executionTime + " in nanoseconds.";
-		return timerDescription;
+		return timeTool.toString();
 	}
 }
